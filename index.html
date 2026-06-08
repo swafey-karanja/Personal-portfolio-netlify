@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
 
+    <link rel="icon" type="image/png" href="/images/logo-top.png" />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -607,54 +609,59 @@
         });
 
         // ── Contact form ──────────────────────────────
-        document.getElementById("cf-submit").addEventListener("click", async () => {
-          const name    = document.getElementById("cf-name").value.trim();
-          const email   = document.getElementById("cf-email").value.trim();
-          const project = document.getElementById("cf-project").value.trim();
-          const message = document.getElementById("cf-message").value.trim();
-          const status  = document.getElementById("cf-status");
-          const btn     = document.getElementById("cf-submit");
+        document
+          .getElementById("cf-submit")
+          .addEventListener("click", async () => {
+            const name = document.getElementById("cf-name").value.trim();
+            const email = document.getElementById("cf-email").value.trim();
+            const project = document.getElementById("cf-project").value.trim();
+            const message = document.getElementById("cf-message").value.trim();
+            const status = document.getElementById("cf-status");
+            const btn = document.getElementById("cf-submit");
 
-          if (!name || !email || !message) {
-            status.textContent = "Please fill in your name, email, and message.";
-            status.className = "text-sm text-red-500";
-            status.classList.remove("hidden");
-            return;
-          }
-
-          btn.disabled = true;
-          btn.textContent = "Sending…";
-          status.classList.add("hidden");
-
-          try {
-            const res = await fetch("/api/contact", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ name, email, project, message }),
-            });
-
-            const data = await res.json();
-
-            if (res.ok) {
-              status.textContent = "Message sent! I'll get back to you soon.";
-              status.className = "text-sm text-green-600";
-              ["cf-name", "cf-email", "cf-project", "cf-message"].forEach((id) => {
-                document.getElementById(id).value = "";
-              });
-            } else {
-              status.textContent = data.error || "Something went wrong. Please try again.";
+            if (!name || !email || !message) {
+              status.textContent =
+                "Please fill in your name, email, and message.";
               status.className = "text-sm text-red-500";
+              status.classList.remove("hidden");
+              return;
             }
-          } catch (err) {
-            status.textContent = "Network error. Please try again later.";
-            status.className = "text-sm text-red-500";
-          } finally {
-            status.classList.remove("hidden");
-            btn.disabled = false;
-            btn.textContent = "Get In Touch";
-          }
-        });
 
+            btn.disabled = true;
+            btn.textContent = "Sending…";
+            status.classList.add("hidden");
+
+            try {
+              const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, project, message }),
+              });
+
+              const data = await res.json();
+
+              if (res.ok) {
+                status.textContent = "Message sent! I'll get back to you soon.";
+                status.className = "text-sm text-green-600";
+                ["cf-name", "cf-email", "cf-project", "cf-message"].forEach(
+                  (id) => {
+                    document.getElementById(id).value = "";
+                  },
+                );
+              } else {
+                status.textContent =
+                  data.error || "Something went wrong. Please try again.";
+                status.className = "text-sm text-red-500";
+              }
+            } catch (err) {
+              status.textContent = "Network error. Please try again later.";
+              status.className = "text-sm text-red-500";
+            } finally {
+              status.classList.remove("hidden");
+              btn.disabled = false;
+              btn.textContent = "Get In Touch";
+            }
+          });
       })();
     </script>
   </body>
