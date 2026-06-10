@@ -4,12 +4,15 @@ const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const TO_EMAIL   = "kswafeyii@gmail.com";
-const FROM_EMAIL = "Portfolio <noreply@yourdomain.com>"; // ← swap to your verified Resend domain
+const TO_EMAIL = "kswafey@gmail.com";
+const FROM_EMAIL = "Portfolio <noreply@swafey.top>"; // ← swap to your verified Resend domain
 
 exports.handler = async function (event) {
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: JSON.stringify({ error: "Method not allowed" }) };
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: "Method not allowed" }),
+    };
   }
 
   let body;
@@ -30,7 +33,10 @@ exports.handler = async function (event) {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Invalid email address." }) };
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Invalid email address." }),
+    };
   }
 
   try {
@@ -54,11 +60,15 @@ exports.handler = async function (event) {
               <a href="mailto:${escHtml(email)}">${escHtml(email)}</a>
             </td>
           </tr>
-          ${project ? `
+          ${
+            project
+              ? `
           <tr>
             <td style="padding:8px 12px;background:#f4f4f5;font-weight:600;">Project</td>
             <td style="padding:8px 12px;border-bottom:1px solid #e4e4e7;">${escHtml(project)}</td>
-          </tr>` : ""}
+          </tr>`
+              : ""
+          }
           <tr>
             <td style="padding:8px 12px;background:#f4f4f5;font-weight:600;vertical-align:top;">Message</td>
             <td style="padding:8px 12px;white-space:pre-wrap;">${escHtml(message)}</td>
@@ -73,7 +83,9 @@ exports.handler = async function (event) {
     console.error("Resend error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send email. Please try again later." }),
+      body: JSON.stringify({
+        error: "Failed to send email. Please try again later.",
+      }),
     };
   }
 };
