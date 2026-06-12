@@ -6,14 +6,14 @@ const portfolioData = {
   // ── Navigation ─────────────────────────────────────────────
   nav: {
     brandImage: "/images/logo-.png",
-    links: ["About Me", "Skills", "Project", "Contact Me"],
+    links: ["About Me", "Skills", "Projects", "Contact Me"],
     resumeUrl:
       "https://drive.google.com/file/d/1n4oq62792RnTntG3EVQXwshaBxLJkCEi/view?usp=sharing",
   },
 
   // ── Hero ────────────────────────────────────────────────────
   hero: {
-    greeting: "Hello I'am",
+    greeting: "Hi I am",
     name: "Samuel Karanja.",
     title: "A Software Engineer.",
     location: "Based In Nairobi, Kenya.",
