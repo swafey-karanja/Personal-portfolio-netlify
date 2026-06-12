@@ -456,7 +456,7 @@
         d.hero.socials.forEach((s) => {
           socialsEl.insertAdjacentHTML(
             "beforeend",
-            `<a href="${s.url}" aria-label="${s.label}"
+            `<a href="${s.url}" target="_blank" aria-label="${s.label}"
            class="w-12 h-12 flex items-center justify-center border border-accent rounded-full text-ink hover:bg-ink hover:text-paper hover:border-ink transition text-2xl">
            <i class="${s.icon}"></i>
          </a>`,
