@@ -6,7 +6,7 @@ const portfolioData = {
   // ── Navigation ─────────────────────────────────────────────
   nav: {
     brandImage: "/images/logo-.png",
-    links: ["About Me", "Skills", "Projects", "Contact Me"],
+    links: ["About Me", "Skills", "Experience", "Projects", "Contact Me"],
     resumeUrl:
       "https://drive.google.com/file/d/1n4oq62792RnTntG3EVQXwshaBxLJkCEi/view?usp=sharing",
   },

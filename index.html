@@ -253,7 +253,7 @@
     <!-- ══════════════════════════════════════════
        EXPERIENCE
   ══════════════════════════════════════════ -->
-    <section class="py-20 bg-ink text-paper">
+    <section class="py-20 bg-ink text-paper" id="Experience">
       <div class="max-w-7xl mx-auto px-6">
         <h2 class="font-serif text-4xl text-center mb-14 reveal">
           My <span class="font-serif italic">Experience</span>
@@ -431,11 +431,61 @@
         document.getElementById("nav-resume").href = d.nav.resumeUrl;
         const navUl = document.getElementById("nav-links");
         const mobileUl = document.getElementById("mobile-links");
+
+        const scrollOffset = 100; // adjust based on your navbar height
+
         d.nav.links.forEach((link) => {
           const li = document.createElement("li");
-          li.innerHTML = `<a href="#${link}" class="nav-link text-ink hover:text-ink transition">${link}</a>`;
+
+          li.innerHTML = `
+    <a href="#${link}" class="nav-link text-ink hover:text-ink transition">
+      ${link}
+    </a>
+  `;
+
+          const anchor = li.querySelector("a");
+
+          anchor.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const section = document.getElementById(link);
+
+            if (section) {
+              const sectionTop =
+                section.getBoundingClientRect().top +
+                window.pageYOffset -
+                scrollOffset;
+
+              window.scrollTo({
+                top: sectionTop,
+                behavior: "smooth",
+              });
+            }
+          });
+
           navUl.appendChild(li);
+
           const li2 = li.cloneNode(true);
+          const anchor2 = li2.querySelector("a");
+
+          anchor2.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const section = document.getElementById(link);
+
+            if (section) {
+              const sectionTop =
+                section.getBoundingClientRect().top +
+                window.pageYOffset -
+                scrollOffset;
+
+              window.scrollTo({
+                top: sectionTop,
+                behavior: "smooth",
+              });
+            }
+          });
+
           mobileUl.appendChild(li2);
         });
         document.getElementById("menu-toggle").addEventListener("click", () => {
