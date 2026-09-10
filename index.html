@@ -90,14 +90,13 @@
       .skill-card {
         transition:
           /* background 0.25s, */
-          transform 0.25s,
-          box-shadow 0.25s;
+          transform 300ms
+          /*box-shadow 0.25s;*/
       }
       .skill-card:hover {
-        background: #0d0d0d;
-        color: #f8f7f4;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        color: #000000;
+        transform: translateY(-10px);
+        /*box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);*/
       }
 
       /* ── Project image zoom ── */
@@ -106,13 +105,13 @@
       }
 
       /* ── Testimonial active ── */
-      .testi-card.active {
-        background: #0d0d0d;
-        color: #f8f7f4;
-      }
-      .testi-card.active .testi-role {
-        color: #aaa;
-      }
+      /*.testi-card.active {*/
+      /*  background: #0d0d0d;*/
+      /*  color: #f8f7f4;*/
+      /*}*/
+      /*.testi-card.active .testi-role {*/
+      /*  color: #aaa;*/
+      /*}*/
 
       /* ── Section separator ── */
       .section-rule {
@@ -126,7 +125,7 @@
       }
       .form-input:focus {
         outline: none;
-        border-color: #0d0d0d;
+        border-color: #ffffff;
       }
 
       /* ── Scrollbar ── */
@@ -167,8 +166,8 @@
         <a
           id="nav-resume"
           target="_blank"
-          href="https://drive.google.com/file/d/1n4oq62792RnTntG3EVQXwshaBxLJkCEi/view?usp=sharing"
-          class="hidden md:inline-flex items-center gap-2 bg-ink text-paper text-sm font-medium px-5 py-2.5 rounded-full hover:bg-ink/80 transition"
+          href="https://drive.google.com/file/d/1MZDbnktlIj3fVXFCJqyIG-6R33TxwKp_/view?usp=drive_link"
+          class="hidden md:inline-flex items-center gap-2 bg-ink text-paper text-sm font-medium px-5 py-2.5 rounded-full border border-black hover:bg-paper hover:text-ink transition"
         >
           Resume <i class="fas fa-arrow-up-right-from-square text-xs"></i>
         </a>
@@ -196,7 +195,7 @@
     <!-- ══════════════════════════════════════════
        HERO
   ══════════════════════════════════════════ -->
-    <section id="About Me" class="min-h-screen flex items-center pt-24 pb-16">
+    <section id="About Me" class="min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
       <div
         class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
       >
@@ -227,6 +226,15 @@
               class="w-full h-full object-cover rounded-2xl"
             />
           </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center mt-36">
+        <span class="text-[15px] uppercase tracking-[0.4em] text-ink/40 mb-4">
+          Scroll to explore
+        </span>
+
+        <div class="w-12 h-20 border border-ink/50 rounded-full flex justify-center pt-8">
+          <i class="fas fa-chevron-down text-lg text-ink animate-bounce"></i>
         </div>
       </div>
     </section>
@@ -295,12 +303,24 @@
     <hr class="section-rule max-w-7xl mx-auto px-6" />
 
     <!-- ══════════════════════════════════════════
-       PROJECTS
-  ══════════════════════════════════════════ -->
-    <section id="Projects" class="py-20 bg-ink text-paper">
+      Personal PROJECTS
+ ══════════════════════════════════════════ -->
+    <section id="Personal-projects" class="py-20 bg-ink text-paper">
       <div class="max-w-7xl mx-auto px-6">
         <h2 class="font-serif text-4xl text-center mb-14 reveal">
-          My <span class="font-serif italic">Projects</span>
+          My <span class="font-serif italic">Personal Projects</span>
+        </h2>
+        <div id="personal-projects-list" class="space-y-20"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+       WORK PROJECTS
+  ══════════════════════════════════════════ -->
+    <section id="Projects" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="font-serif text-4xl text-center mb-14 reveal">
+          My <span class="font-serif italic">Professional Work</span>
         </h2>
         <div id="projects-list" class="space-y-20"></div>
       </div>
@@ -323,13 +343,14 @@
     <!-- ══════════════════════════════════════════
        CONTACT
   ══════════════════════════════════════════ -->
-    <section id="Contact Me" class="py-20">
+    <section id="Contact Me" class="py-20 bg-ink text-paper">
       <div
         class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start"
       >
         <!-- Form -->
         <div class="reveal space-y-4">
           <input
+            aria-label="Name"
             id="cf-name"
             type="text"
             placeholder="Your Name"
@@ -337,25 +358,28 @@
           />
           <input
             id="cf-email"
+            aria-label="Email"
             type="email"
             placeholder="Email"
             class="form-input w-full border border-accent bg-transparent px-4 py-3 rounded-lg text-sm"
           />
           <input
             id="cf-project"
+            aria-label="Project"
             type="text"
             placeholder="Your Project (Purpose)"
             class="form-input w-full border border-accent bg-transparent px-4 py-3 rounded-lg text-sm"
           />
           <textarea
             id="cf-message"
+            aria-label="Message"
             placeholder="Your Message"
             rows="4"
             class="form-input w-full border border-accent bg-transparent px-4 py-3 rounded-lg text-sm resize-none"
           ></textarea>
           <button
             id="cf-submit"
-            class="bg-ink text-paper font-medium text-sm px-8 py-3 rounded-full hover:bg-ink/80 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            class="bg-paper text-ink font-medium text-sm px-8 py-3 rounded-full border border-white/80 hover:bg-ink hover:text-paper transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Get In Touch
           </button>
@@ -378,7 +402,7 @@
               class="flex items-center gap-3 text-sm group"
             >
               <span
-                class="w-9 h-9 flex items-center justify-center border border-accent rounded-full group-hover:bg-ink group-hover:text-paper group-hover:border-ink transition text-xs"
+                class="w-9 h-9 flex items-center justify-center border border-accent rounded-full group-hover:bg-ink group-hover:text-paper transition text-xs"
               >
                 <i class="fas fa-envelope"></i>
               </span>
@@ -390,7 +414,7 @@
               class="flex items-center gap-3 text-sm group"
             >
               <span
-                class="w-9 h-9 flex items-center justify-center border border-accent rounded-full group-hover:bg-ink group-hover:text-paper group-hover:border-ink transition text-xs"
+                class="w-9 h-9 flex items-center justify-center border border-accent rounded-full group-hover:bg-ink group-hover:text-paper transition text-xs"
               >
                 <i class="fas fa-phone"></i>
               </span>
@@ -404,7 +428,7 @@
     <!-- ══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════ -->
-    <footer class="bg-ink text-paper pt-4 pb-2">
+    <footer class="bg-ink pt-4 pb-2 border-t border-gray-400">
       <div
         class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm"
       >
@@ -438,10 +462,10 @@
           const li = document.createElement("li");
 
           li.innerHTML = `
-    <a href="#${link}" class="nav-link text-ink hover:text-ink transition">
-      ${link}
-    </a>
-  `;
+            <a href="#${link}" class="nav-link text-ink hover:text-ink transition">
+              ${link}
+            </a>
+          `;
 
           const anchor = li.querySelector("a");
 
@@ -516,13 +540,22 @@
         // ── Skills ───────────────────────────────────
         const skillsGrid = document.getElementById("skills-grid");
         d.skills.forEach((sk, i) => {
+          const isImage =
+                  sk.icon.startsWith("/") ||
+                  sk.icon.startsWith("https") ||
+                  /\.(png|jpg|jpeg|svg|webp|gif)$/i.test(sk.icon);
+
           skillsGrid.insertAdjacentHTML(
-            "beforeend",
-            `<div class="skill-card reveal border border-accent rounded-md flex flex-col items-center justify-center gap-3 py-7 cursor-default"
-              style="transition-delay:${i * 0.05}s">
-           <i class="${sk.icon} text-5xl"></i>
-           <span class="text-xs font-medium tracking-wide">${sk.name}</span>
-         </div>`,
+          "beforeend",
+          `<div class="skill-card reveal border border-accent rounded-md flex flex-col items-center justify-center gap-3 py-7 cursor-default" style="transition-delay:${i * 0.03}s">
+
+            ${
+                isImage
+                  ? `<img src="${sk.icon}" alt="${sk.name}" class="w-14 h-14 object-contain">`
+                  : `<i class="${sk.icon} text-5xl"></i>`
+              }
+            <span class="text-xs font-medium tracking-wide">${sk.name}</span>
+          </div>`,
           );
         });
 
@@ -555,7 +588,7 @@
           aboutEl.insertAdjacentHTML("beforeend", `<p>${p}</p>`);
         });
 
-        // ── Projects ──────────────────────────────────
+        // ──Work Projects ──────────────────────────────────
         const projList = document.getElementById("projects-list");
         d.projects.forEach((proj, i) => {
           const isEven = i % 2 === 0;
@@ -571,7 +604,7 @@
              <div>
                <span class="font-serif italic text-5xl text-paper/20 leading-none block mb-3">${proj.number}</span>
                <h3 class="font-serif text-2xl mb-4">${proj.title}</h3>
-               <p class="text-paper/60 text-sm leading-relaxed mb-6">${proj.description}</p>
+               <p class="text-ink/60 text-sm leading-relaxed mb-6">${proj.description}</p>
                <a href="${proj.liveUrl}" target="_blank" class="inline-flex items-center gap-2 border border-paper/30 text-paper text-sm px-5 py-2 rounded-full hover:bg-paper hover:text-ink transition">
                  View Live <i class="fas fa-arrow-up-right-from-square text-xs"></i>
                </a>
@@ -581,7 +614,7 @@
              <div class="order-2 md:order-1">
                <span class="font-serif italic text-5xl text-paper/20 leading-none block mb-3">${proj.number}</span>
                <h3 class="font-serif text-2xl mb-4">${proj.title}</h3>
-               <p class="text-paper/60 text-sm leading-relaxed mb-6">${proj.description}</p>
+               <p class="text-ink/60 text-sm leading-relaxed mb-6">${proj.description}</p>
                <a href="${proj.liveUrl}" target="_blank" class="inline-flex items-center gap-2 border border-paper/30 text-paper text-sm px-5 py-2 rounded-full hover:bg-paper hover:text-ink transition">
                  View Live <i class="fas fa-arrow-up-right-from-square text-xs"></i>
                </a>
@@ -591,6 +624,49 @@
              </div>
            `
            }
+         </div>`,
+          );
+        });
+
+
+        // ──Perosnal Projects ──────────────────────────────────
+        const personalprojList = document.getElementById("personal-projects-list");
+        d.personal_projects.forEach((proj, i) => {
+          const isEven = i % 2 === 0;
+          personalprojList.insertAdjacentHTML(
+          "beforeend",
+          `<div class="reveal grid md:grid-cols-2 gap-10 items-center" style="transition-delay:${i * 0.1}s">
+            ${
+              isEven ?
+               `<div class="project-img-wrap rounded-2xl overflow-hidden">
+                    <img src="${proj.image}" alt="${proj.title}" class="w-full max-h-130 object-cover" />
+                 </div>
+                 <div>
+                    <span class="font-serif italic text-5xl text-paper/60 leading-none block mb-3">${proj.number}</span>
+                    <h3 class="font-serif text-2xl mb-4">${proj.title}</h3>
+                    <p class="text-sm text-paper/60 leading-relaxed mb-6">
+                      ${proj.description.replace(/\n\n/g, "<br><br>")}
+                    </p>
+                    <a href="${proj.gitUrl}" target="_blank" class="inline-flex items-center gap-2 border border-ink/30 text-ink text-sm px-5 py-2 rounded-full hover:bg-ink hover:text-paper transition">
+                        View on Github <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                     </a>
+                 </div>`
+              :
+              `<div class="order-2 md:order-1">
+                  <span class="font-serif italic text-5xl text-paper/60 leading-none block mb-3">${proj.number}</span>
+                  <h3 class="font-serif text-2xl mb-4">${proj.title}</h3>
+                   <p class="text-sm text-paper/60 leading-relaxed mb-6">
+                    ${proj.description.replace(/\n\n/g, "<br><br>")}
+                  </p>
+                  <a href="${proj.gitUrl}" target="_blank" class="inline-flex items-center gap-2 border border-ink/30 text-ink text-sm px-5 py-2 rounded-full hover:bg-ink hover:text-paper transition">
+                      View on Github <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                  </a>
+               </div>
+               <div class="project-img-wrap rounded-2xl overflow-hidden order-1 md:order-2">
+                    <img src="${proj.image}" alt="${proj.title}" class="w-full max-h-130 object-cover" />
+               </div>
+             `
+            }
          </div>`,
           );
         });
