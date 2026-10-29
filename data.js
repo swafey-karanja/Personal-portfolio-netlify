@@ -8,7 +8,7 @@ const portfolioData = {
     brandImage: "/images/logo-.png",
     links: ["About Me", "Skills", "Experience", "Projects", "Contact Me"],
     resumeUrl:
-      "https://drive.google.com/file/d/1MZDbnktlIj3fVXFCJqyIG-6R33TxwKp_/view?usp=drive_link",
+      "https://drive.google.com/file/d/1VIiy26ZTqL7cZHDj6KUB6b4qWbp6S2CA/view?usp=drive_link",
   },
 
   // ── Hero ────────────────────────────────────────────────────
